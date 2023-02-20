@@ -52,6 +52,9 @@ namespace HybridCLR.Editor
         [Header("生成link.xml时收集Type（精简生成的代码）")]
         public bool isCollectType = true;
 
+        [Header("每次打AB包时都重新生成link.xml")]
+        public bool isAutoGenerateXml = false;
+
         [Header("生成的link.xml路径")]
         public string outputLinkFile = "HybridCLRData/Generated/link.xml";
 
