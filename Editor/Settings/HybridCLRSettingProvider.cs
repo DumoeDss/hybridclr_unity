@@ -13,6 +13,8 @@ namespace HybridCLR.Editor
         private SerializedProperty _useGlobalIl2cpp;
         private SerializedProperty _hybridclrRepoURL;
         private SerializedProperty _il2cppPlusRepoURL;
+        private SerializedProperty _aotDllPassword;
+        private SerializedProperty _hotUpdateDllPassword;
         private SerializedProperty _hotUpdateAssemblyDefinitions;
         private SerializedProperty _hotUpdateAssemblies;
         private SerializedProperty _preserveHotUpdateAssemblies;
@@ -41,6 +43,8 @@ namespace HybridCLR.Editor
             _useGlobalIl2cpp = _serializedObject.FindProperty("useGlobalIl2cpp");
             _hybridclrRepoURL = _serializedObject.FindProperty("hybridclrRepoURL");
             _il2cppPlusRepoURL = _serializedObject.FindProperty("il2cppPlusRepoURL");
+            _aotDllPassword = _serializedObject.FindProperty("aotDllPassword");
+            _hotUpdateDllPassword = _serializedObject.FindProperty("hotUpdateDllPassword");
             _hotUpdateAssemblyDefinitions = _serializedObject.FindProperty("hotUpdateAssemblyDefinitions");
             _hotUpdateAssemblies = _serializedObject.FindProperty("hotUpdateAssemblies");
             _preserveHotUpdateAssemblies = _serializedObject.FindProperty("preserveHotUpdateAssemblies");
@@ -130,6 +134,8 @@ namespace HybridCLR.Editor
                 EditorGUILayout.PropertyField(_hybridclrRepoURL);
                 EditorGUILayout.PropertyField(_il2cppPlusRepoURL);
                 EditorGUILayout.PropertyField(_useGlobalIl2cpp);
+                EditorGUILayout.PropertyField(_aotDllPassword);
+                EditorGUILayout.PropertyField(_hotUpdateDllPassword);
                 EditorGUILayout.PropertyField(_hotUpdateAssemblyDefinitions);
                 EditorGUILayout.PropertyField(_hotUpdateAssemblies);
                 EditorGUILayout.PropertyField(_preserveHotUpdateAssemblies);

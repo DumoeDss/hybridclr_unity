@@ -25,6 +25,12 @@ namespace HybridCLR.Editor
         [Header("裁减后AOT dll输出根目录")]
         public string strippedAOTDllOutputRootDir = "HybridCLRData/AssembliesPostIl2CppStrip";
 
+        [Header("AOT dll加密密钥（16位，运行时解密需要，勿外传）")]
+        public string aotDllPassword;
+
+        [Header("HotUpdate dll加密密钥（16位，运行时解密需要，勿外传）")]
+        public string hotUpdateDllPassword;
+
         [Header("热更新Assembly Definitions")]
         public StringAssemblyDefinitionAssetDic hotUpdateAssemblyDefinitions;
 
