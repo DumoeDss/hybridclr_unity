@@ -2,7 +2,8 @@
     "name": "HybridCLR.Editor",
     "rootNamespace": "",
     "references": [
-        "HybridCLR.Runtime"
+        "HybridCLR.Runtime",
+        "RotaryHeart"
     ],
     "includePlatforms": [
         "Editor"

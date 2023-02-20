@@ -72,14 +72,21 @@ namespace HybridCLR.Editor
             get
             {
                 var gs = HybridCLRSettings.Instance;
-                var hotfixAssNames = (gs.hotUpdateAssemblyDefinitions ?? Array.Empty<AssemblyDefinitionAsset>()).Select(ad => JsonUtility.FromJson<AssemblyDefinitionData>(ad.text));
-
                 var hotfixAssembles = new List<string>();
-                foreach (var assName in hotfixAssNames)
+
+                foreach (var item in gs.hotUpdateAssemblyDefinitions)
                 {
-                    hotfixAssembles.Add(assName.name);
+                    var hotfixAssNames = (item.Value.list.ToArray() ?? Array.Empty<AssemblyDefinitionAsset>()).Select(ad => JsonUtility.FromJson<AssemblyDefinitionData>(ad.text));
+                    foreach (var assName in hotfixAssNames)
+                    {
+                        hotfixAssembles.Add(assName.name);
+                    }
                 }
-                hotfixAssembles.AddRange(gs.hotUpdateAssemblies ?? Array.Empty<string>());
+               
+                foreach (var item in gs.hotUpdateAssemblies)
+                {
+                    hotfixAssembles.AddRange(item.Value.list.ToArray() ?? Array.Empty<string>());
+                }
                 return hotfixAssembles.ToList();
             }
         }
@@ -92,8 +99,14 @@ namespace HybridCLR.Editor
             get
             {
                 List<string> allAsses = HotUpdateAssemblyNamesExcludePreserved;
-                string[] preserveAssemblyNames = HybridCLRSettings.Instance.preserveHotUpdateAssemblies;
-                if (preserveAssemblyNames != null && preserveAssemblyNames.Length > 0)
+                var preserveAssemblyNames = new List<string>();
+
+                foreach (var item in HybridCLRSettings.Instance.preserveHotUpdateAssemblies)
+                {
+                    preserveAssemblyNames.AddRange(item.Value.list.ToArray() ?? Array.Empty<string>());
+                }
+
+                if (preserveAssemblyNames != null && preserveAssemblyNames.Count > 0)
                 {
                     foreach (var assemblyName in preserveAssemblyNames)
                     {

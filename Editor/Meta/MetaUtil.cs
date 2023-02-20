@@ -125,7 +125,7 @@ namespace HybridCLR.Editor.Meta
 			var externalDirs = HybridCLRSettings.Instance.externalHotUpdateAssembliyDirs;
 			var defaultHotUpdateOutputDir = SettingsUtil.GetHotUpdateDllsOutputDirByTarget(target);
 			IAssemblyResolver defaultHotUpdateResolver = new FixedSetAssemblyResolver(defaultHotUpdateOutputDir, hotUpdateDlls);
-			if (externalDirs == null || externalDirs.Length == 0)
+			if (externalDirs == null || externalDirs.Count == 0)
             {
 				return defaultHotUpdateResolver;
             }
@@ -135,8 +135,11 @@ namespace HybridCLR.Editor.Meta
 				foreach (var dir in externalDirs)
                 {
 					resolvers.Add(new FixedSetAssemblyResolver($"{dir}/{target}", hotUpdateDlls));
-					resolvers.Add(new FixedSetAssemblyResolver(dir, hotUpdateDlls));
-                }
+                    foreach (var item in dir.Value.list)
+                    {
+						resolvers.Add(new FixedSetAssemblyResolver(item, hotUpdateDlls));
+					}
+				}
 				resolvers.Add(defaultHotUpdateResolver);
 				return new CombinedAssemblyResolver(resolvers.ToArray());
             }

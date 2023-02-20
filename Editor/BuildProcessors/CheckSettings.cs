@@ -53,7 +53,7 @@ namespace HybridCLR.Editor.BuildProcessors
             }
 
             HybridCLRSettings gs = SettingsUtil.HybridCLRSettings;
-            if (((gs.hotUpdateAssemblies?.Length + gs.hotUpdateAssemblyDefinitions?.Length) ?? 0) == 0)
+            if (((gs.hotUpdateAssemblies?.Values?.Count + gs.hotUpdateAssemblyDefinitions?.Values?.Count) ?? 0) == 0)
             {
                 Debug.LogWarning("[CheckSettings] HybridCLRSettings中未配置任何热更新模块");
             }

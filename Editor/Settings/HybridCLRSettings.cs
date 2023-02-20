@@ -1,3 +1,5 @@
+using RotaryHeart.Lib.SerializableDictionary;
+using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 namespace HybridCLR.Editor
@@ -17,26 +19,29 @@ namespace HybridCLR.Editor
         [Header("il2cpp_plus 仓库 URL")]
         public string il2cppPlusRepoURL = "https://gitee.com/focus-creative-games/il2cpp_plus";
 
-        [Header("热更新Assembly Definitions")]
-        public AssemblyDefinitionAsset[] hotUpdateAssemblyDefinitions;
-
-        [Header("热更新dlls")]
-        public string[] hotUpdateAssemblies;
-
-        [Header("预留的热更新dlls")]
-        public string[] preserveHotUpdateAssemblies;
-
         [Header("热更新dll编译输出根目录")]
         public string hotUpdateDllCompileOutputRootDir = "HybridCLRData/HotUpdateDlls";
-
-        [Header("外部热更新dll搜索路径")]
-        public string[] externalHotUpdateAssembliyDirs;
 
         [Header("裁减后AOT dll输出根目录")]
         public string strippedAOTDllOutputRootDir = "HybridCLRData/AssembliesPostIl2CppStrip";
 
+        [Header("热更新Assembly Definitions")]
+        public StringAssemblyDefinitionAssetDic hotUpdateAssemblyDefinitions;
+
+        [Header("热更新dlls")]
+        public StringStringListDic hotUpdateAssemblies;
+
+        [Header("预留的热更新dlls")]
+        public StringStringListDic preserveHotUpdateAssemblies;
+
+        [Header("外部热更新dll搜索路径")]
+        public StringStringListDic externalHotUpdateAssembliyDirs;
+
         [Header("补充元数据AOT dlls")]
         public string[] patchAOTAssemblies;
+
+        [Header("生成link.xml时扫描asset中引用的类型")]
+        public bool collectAssetReferenceTypes;
 
         [Header("生成的link.xml路径")]
         public string outputLinkFile = "HybridCLRData/Generated/link.xml";
@@ -49,5 +54,29 @@ namespace HybridCLR.Editor
 
         [Header("MethodBridge泛型搜索迭代次数")]
         public int maxMethodBridgeGenericIteration = 10;
+    }
+
+    [System.Serializable]
+    public class StringStringListDic : SerializableDictionaryBase<string, StringList>
+    {
+
+    }
+
+    [System.Serializable]
+    public class StringList
+    {
+        public List<string> list;
+    }
+
+    [System.Serializable]
+    public class StringAssemblyDefinitionAssetDic : SerializableDictionaryBase<string, AssemblyDefinitionAssetList>
+    {
+
+    }
+
+    [System.Serializable]
+    public class AssemblyDefinitionAssetList
+    {
+        public List<AssemblyDefinitionAsset> list;
     }
 }
