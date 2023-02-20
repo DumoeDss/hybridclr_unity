@@ -23,6 +23,7 @@ namespace HybridCLR.Editor
         private SerializedProperty _externalHotUpdateAssembliyDirs;
         private SerializedProperty _strippedAOTDllOutputRootDir;
         private SerializedProperty _homologousImageMode;
+        private SerializedProperty _unityInstallRootDir;
         private SerializedProperty _patchAOTAssemblies;
         private SerializedProperty _isAutoGenerateXml;        
         private SerializedProperty _isCollectType;
@@ -56,6 +57,7 @@ namespace HybridCLR.Editor
             _externalHotUpdateAssembliyDirs = _serializedObject.FindProperty("externalHotUpdateAssembliyDirs");
             _strippedAOTDllOutputRootDir = _serializedObject.FindProperty("strippedAOTDllOutputRootDir");
             _homologousImageMode = _serializedObject.FindProperty("homologousImageMode");
+            _unityInstallRootDir = _serializedObject.FindProperty("unityInstallRootDir");
             _patchAOTAssemblies = _serializedObject.FindProperty("patchAOTAssemblies");
             _isCollectType = _serializedObject.FindProperty("isCollectType");
             _isAutoGenerateXml = _serializedObject.FindProperty("isAutoGenerateXml");          
@@ -150,6 +152,7 @@ namespace HybridCLR.Editor
                 EditorGUILayout.PropertyField(_externalHotUpdateAssembliyDirs);
                 EditorGUILayout.PropertyField(_strippedAOTDllOutputRootDir);
                 EditorGUILayout.PropertyField(_homologousImageMode);
+                EditorGUILayout.PropertyField(_unityInstallRootDir);
                 EditorGUILayout.PropertyField(_patchAOTAssemblies); 
                 EditorGUILayout.PropertyField(_isCollectType);
                 EditorGUILayout.PropertyField(_isAutoGenerateXml);

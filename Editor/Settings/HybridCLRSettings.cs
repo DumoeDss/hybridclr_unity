@@ -49,6 +49,9 @@ namespace HybridCLR.Editor
         [Header("补充元数据模式")]
         public HomologousImageMode homologousImageMode = HomologousImageMode.SuperSet;
 
+        [Header("Unity的安装目录，当元数据模式为SuperSet时需要设置，需要定位到Data文件夹下（如C:/Unity/2020.3.33f1/Editor/Data）")]
+        public string unityInstallRootDir = "";
+
         [Header("补充元数据AOT dlls")]
         public string[] patchAOTAssemblies;
 
