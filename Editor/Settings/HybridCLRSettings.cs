@@ -46,6 +46,9 @@ namespace HybridCLR.Editor
         [Header("外部热更新dll搜索路径")]
         public StringStringListDic externalHotUpdateAssembliyDirs;
 
+        [Header("补充元数据模式")]
+        public HomologousImageMode homologousImageMode = HomologousImageMode.SuperSet;
+
         [Header("补充元数据AOT dlls")]
         public string[] patchAOTAssemblies;
 
