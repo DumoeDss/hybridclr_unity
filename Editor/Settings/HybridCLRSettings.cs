@@ -26,16 +26,19 @@ namespace HybridCLR.Editor
         public string strippedAOTDllOutputRootDir = "HybridCLRData/AssembliesPostIl2CppStrip";
 
         [Header("AOT dll加密密钥（16位，运行时解密需要，勿外传）")]
-        public string aotDllPassword;
+        public string aotDllPassword= "HybridCLRAotDll.";
 
         [Header("HotUpdate dll加密密钥（16位，运行时解密需要，勿外传）")]
-        public string hotUpdateDllPassword;
+        public string hotUpdateDllPassword = "HybridCLRHotDll.";
+
+        [Header("默认Package名称")]
+        public string defaultPackageName = "DefaultPackage";
 
         [Header("热更新Assembly Definitions")]
-        public StringAssemblyDefinitionAssetDic hotUpdateAssemblyDefinitions;
+        public StringAssemblyDefinitionAssetDic hotUpdateAssemblyDefinitions = new StringAssemblyDefinitionAssetDic() { { "DefaultPackage", null } };
 
         [Header("热更新dlls")]
-        public StringStringListDic hotUpdateAssemblies;
+        public StringStringListDic hotUpdateAssemblies = new StringStringListDic() { { "DefaultPackage", null } };
 
         [Header("预留的热更新dlls")]
         public StringStringListDic preserveHotUpdateAssemblies;
