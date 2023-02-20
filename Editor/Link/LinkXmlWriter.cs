@@ -11,7 +11,7 @@ namespace HybridCLR.Editor.Link
 {
     internal class LinkXmlWriter
     {
-        public void Write(string outputLinkXmlFile, HashSet<TypeRef> refTypes)
+        public void Write(string outputLinkXmlFile, HashSet<TypeRef> refTypes, bool isCollectType = true)
         {
             string parentDir = Directory.GetParent(outputLinkXmlFile).FullName;
             Directory.CreateDirectory(parentDir);
@@ -28,14 +28,17 @@ namespace HybridCLR.Editor.Link
             {
                 writer.WriteStartElement("assembly");
                 writer.WriteAttributeString("fullname", assembly.Key);
-                List<TypeRef> assTypes = assembly.ToList();
-                assTypes.Sort((a, b) => a.FullName.CompareTo(b.FullName));
-                foreach(var type in assTypes)
+                if (isCollectType)
                 {
-                    writer.WriteStartElement("type");
-                    writer.WriteAttributeString("fullname", type.FullName);
-                    writer.WriteAttributeString("preserve", "all");
-                    writer.WriteEndElement();
+                    List<TypeRef> assTypes = assembly.ToList();
+                    assTypes.Sort((a, b) => a.FullName.CompareTo(b.FullName));
+                    foreach (var type in assTypes)
+                    {
+                        writer.WriteStartElement("type");
+                        writer.WriteAttributeString("fullname", type.FullName);
+                        writer.WriteAttributeString("preserve", "all");
+                        writer.WriteEndElement();
+                    }
                 }
                 writer.WriteEndElement();
             }

@@ -40,6 +40,9 @@ namespace HybridCLR.Editor
         [Header("补充元数据AOT dlls")]
         public string[] patchAOTAssemblies;
 
+        [Header("生成link.xml时收集Type（精简生成的代码）")]
+        public bool isCollectType = true;
+
         [Header("生成的link.xml路径")]
         public string outputLinkFile = "HybridCLRData/Generated/link.xml";
 

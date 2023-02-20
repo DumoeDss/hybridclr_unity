@@ -31,7 +31,7 @@ namespace HybridCLR.Editor.Commands
 
             Debug.Log($"[LinkGeneratorCommand] hotfix assembly count:{hotfixAssemblies.Count}, ref type count:{refTypes.Count} output:{Application.dataPath}/{ls.outputLinkFile}");
             var linkXmlWriter = new LinkXmlWriter();
-            linkXmlWriter.Write($"{Application.dataPath}/{ls.outputLinkFile}", refTypes);
+            linkXmlWriter.Write($"{Application.dataPath}/{ls.outputLinkFile}", refTypes, ls.isCollectType);
             AssetDatabase.Refresh();
         }
     }
