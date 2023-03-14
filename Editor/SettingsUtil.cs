@@ -37,6 +37,8 @@ namespace HybridCLR.Editor
 
         public static string HotUpdateDllsRootOutputDir => HybridCLRSettings.Instance.hotUpdateDllCompileOutputRootDir;
 
+        public static string AotDllsRootOutputDir => $"{HybridCLRSettings.Instance.hotUpdateDllCompileOutputRootDir}_Full";
+
         public static string AssembliesPostIl2CppStripDir => HybridCLRSettings.Instance.strippedAOTDllOutputRootDir;
 
         public static string HybridCLRDataDir => $"{ProjectDir}/HybridCLRData";
