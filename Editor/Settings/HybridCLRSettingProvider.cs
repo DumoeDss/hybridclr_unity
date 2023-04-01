@@ -13,6 +13,7 @@ namespace HybridCLR.Editor
         private SerializedProperty _useGlobalIl2cpp;
         private SerializedProperty _hybridclrRepoURL;
         private SerializedProperty _il2cppPlusRepoURL;
+        private SerializedProperty _appInitDataConfigsPath;
         private SerializedProperty _aotDllPassword;
         private SerializedProperty _hotUpdateDllPassword;
         private SerializedProperty _defaultPackageName;
@@ -47,6 +48,7 @@ namespace HybridCLR.Editor
             _useGlobalIl2cpp = _serializedObject.FindProperty("useGlobalIl2cpp");
             _hybridclrRepoURL = _serializedObject.FindProperty("hybridclrRepoURL");
             _il2cppPlusRepoURL = _serializedObject.FindProperty("il2cppPlusRepoURL");
+            _appInitDataConfigsPath = _serializedObject.FindProperty("appInitDataConfigsPath");
             _aotDllPassword = _serializedObject.FindProperty("aotDllPassword");
             _hotUpdateDllPassword = _serializedObject.FindProperty("hotUpdateDllPassword");
             _defaultPackageName = _serializedObject.FindProperty("defaultPackageName");
@@ -142,6 +144,7 @@ namespace HybridCLR.Editor
                 EditorGUILayout.PropertyField(_hybridclrRepoURL);
                 EditorGUILayout.PropertyField(_il2cppPlusRepoURL);
                 EditorGUILayout.PropertyField(_useGlobalIl2cpp);
+                EditorGUILayout.PropertyField(_appInitDataConfigsPath);
                 EditorGUILayout.PropertyField(_aotDllPassword);
                 EditorGUILayout.PropertyField(_hotUpdateDllPassword);
                 EditorGUILayout.PropertyField(_defaultPackageName);

@@ -25,6 +25,9 @@ namespace HybridCLR.Editor
         [Header("裁减后AOT dll输出根目录")]
         public string strippedAOTDllOutputRootDir = "HybridCLRData/AssembliesPostIl2CppStrip";
 
+        [Header("AppInitDataConfigs路径")]
+        public string appInitDataConfigsPath = "Assets/DataConfigs/AppInitDataConfigs.asset";
+
         [Header("AOT dll加密密钥（16位，运行时解密需要，勿外传）")]
         public string aotDllPassword= "HybridCLRAotDll.";
 
